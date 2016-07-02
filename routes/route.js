@@ -16,7 +16,7 @@ router.get( '/', function (req, res){
 //router DELETE to delete hero by ID
 router.delete('/deleteHero', function(req, res){
   console.log('Biggles in deleteHero with ' + req.body.id);
-  heroes.findByIdAndRemove(req.body.id, function(err){
+  Hero.findByIdAndRemove(req.body.id, function(err){
     if(err){
       res.sendStatus(500);
     } else {

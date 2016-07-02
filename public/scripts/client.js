@@ -49,6 +49,8 @@ $scope.retrieveHero();
       url: '/deleteHero',
       data: sendID,
       headers: {'Content-Type': 'application/json;charset=utf-8'}
+    }).then(function(){
+      $scope.retrieveHero();
     });
   };//end deleteHero
 }]);// end controller createHero
