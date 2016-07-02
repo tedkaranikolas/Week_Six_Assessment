@@ -1,11 +1,11 @@
 var express = require('express');
 var router = express.Router();
 var path = require('path');
-var Hero = require('../models/hero');
-
 var mongoose = require('mongoose');
+
 mongoose.connect('mongodb://localhost:27017/heroDB');
 
+var Hero = require('../models/hero');
 
 // base url
 router.get( '/', function (req, res){
@@ -15,7 +15,7 @@ router.get( '/', function (req, res){
 
 //router DELETE to delete hero by ID
 router.delete('/deleteHero', function(req, res){
-  console.log('Biggles in deleteHero');
+  console.log('Biggles in deleteHero with ' + req.body.id);
   heroes.findByIdAndRemove(req.body.id, function(err){
     if(err){
       res.sendStatus(500);

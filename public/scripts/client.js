@@ -13,7 +13,7 @@ myApp.controller('heroController', ['$scope', '$http', function($scope, $http){
       url: '/retrieveHero'
     }).then(function(response){
       $scope.allTheHeroes = response.data;
-      console.log('Bilo is ready for a hero: ' + response);
+      console.log('Bilo is ready for a hero: ' + response.data);
     });
 };//end retrieveHero
 $scope.retrieveHero();
@@ -31,6 +31,8 @@ $scope.retrieveHero();
       method: 'POST',
       url: '/postHero',
       data: newHeroOut
+    }).then(function(){
+      $scope.retrieveHero();
     });
     $scope.aliasIn = '';
     $scope.firstNameIn = '';
@@ -40,13 +42,12 @@ $scope.retrieveHero();
   };//end addHero
 
   $scope.deleteHero = function(heroID){
-    var idOut = {
-      id: heroID
-    };
+    console.log('Bilo in deleteHero');
+    var sendID = {id: heroID};
     $http({
       method: 'DELETE',
       url: '/deleteHero',
-      data: idOut,
+      data: sendID,
       headers: {'Content-Type': 'application/json;charset=utf-8'}
     });
   };//end deleteHero

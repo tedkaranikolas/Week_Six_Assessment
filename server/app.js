@@ -2,10 +2,11 @@ var express = require('express');
 var app = express();
 var path = require('path');
 var bodyParser = require('body-parser');
+var router = express.Router();
 //var mongoose = require('mongoose');
 
 //require model Hero
-var Hero = require('../models/hero');
+// var Hero = require('../models/hero');
 
 //mongoose.connect('mongodb://localhost:27017/heroDB');
 
