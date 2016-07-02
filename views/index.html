@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html ng-app="myApp">
+  <head>
+    <meta charset="utf-8">
+    <title>Code Challenge</title>
+    <script src="vendors/angular.min.js" charset="utf-8"></script>
+    <script src="scripts/client.js" charset="utf-8"></script>
+  </head>
+  <body>
+    <div ng-controller="heroController">
+    <h1>Time for Heroes</h1>
+        <input type="text" name="aliasIn" ng-model="aliasIn" value="" placeholder="Alias">
+        <input type="text" name="firstNameIn" ng-model="firstNameIn" value="" placeholder="First Name">
+        <input type="text" name="lastNameIn" ng-model="lastNameIn" value="" placeholder="Last Name">
+        <input type="text" name="cityIn" ng-model="cityIn" value="" placeholder="City">
+          <select ng-model="powerNameIn">
+            <option value="Invisibility">Invisibility</option>
+            <option value="Flight">Flight</option>
+            <option value="Super Speed">Super Speed</option>
+            <option value="Heat Vision">Heat Vision</option>
+            <option value="Super Strength">Super Strength</option>
+            <option value="Accelerated Healing">Accelerated Healing</option>
+            <option value="Power Blast">Power Blast</option>
+            <option value="Animal Affinity">Animal Affinity</option>
+          </select>
+        <button type="button" ng-click="addHero()">Submit</button>
+              <table>
+                <tr>
+                  <th>Alias</th>
+                  <th>First Name</th>
+                  <th>Last Name</th>
+                  <th>City</th>
+                  <th>Super Power</th>
+                </tr>
+                <tr ng-repeat="hero in allTheHeroes">
+                  <td>{{hero.alias}}</td>
+                  <td>{{hero.first_name}}</td>
+                  <td>{{hero.last_name}}</td>
+                  <td>{{hero.city}}</td>
+                  <td>{{hero.power_name}}</td>
+                  <td><button type="button" name="deleteHero" ng-click="deleteHero(heroes._id)">Remove Hero</button></td>
+                </tr>
+              </table>
+
+
+
+  </div>
+  </body>
+</html>
